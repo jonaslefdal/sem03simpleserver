@@ -45,7 +45,8 @@ func main() {
 					msg := string(dekryptertMelding)
 					switch msg {
 					case "ping":
-						_, err = c.Write([]byte("pong"))
+						kryptertMelding := mycrypt.Krypter([]rune("pong"), mycrypt.ALF_SEM03, 4)
+						_, err = c.Write([]byte(string(kryptertMelding)))
 					default:
 						if strings.HasPrefix(msg, "Kjevik") {
 							dekryptertMeldingfahr, err := yr.CelsiusToFahrenheitLine(msg)
