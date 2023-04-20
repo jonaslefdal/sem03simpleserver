@@ -44,7 +44,7 @@ func main() {
 					case "ping":
 						_, err = c.Write([]byte("pong"))
 					default:
-						_, err = c.Write(buf[:n])
+						_, err = c.Write([]byte(string(dekryptertMelding)))
 					}
 					if err != nil {
 						if err != io.EOF {
