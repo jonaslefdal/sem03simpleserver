@@ -4,9 +4,11 @@ import (
 	"io"
 	"log"
 	"net"
+	"strings"
 	"sync"
 
 	"github.com/jonaslefdal/is105sem03/mycrypt"
+	"github.com/jonaslefdal/minyr/yr"
 )
 
 func main() {
@@ -40,11 +42,24 @@ func main() {
 					}
 					dekryptertMelding := mycrypt.Krypter(([]rune(string(buf[:n]))), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
 					log.Println("Dekrypter melding: ", string(dekryptertMelding))
-					switch msg := string(dekryptertMelding); msg {
+					msg := string(dekryptertMelding)
+					switch msg {
 					case "ping":
 						_, err = c.Write([]byte("pong"))
 					default:
-						_, err = c.Write([]byte(string(dekryptertMelding)))
+						if strings.HasPrefix(msg, "Kjevik") {
+							dekryptertMeldingfahr, err := yr.CelsiusToFahrenheitLine(msg)
+							if err != nil {
+								log.Println(err)
+							}
+							log.Println("Dekrypter melding i fahr: ", string(dekryptertMeldingfahr))
+							kryptertMelding := mycrypt.Krypter([]rune(dekryptertMeldingfahr), mycrypt.ALF_SEM03, 4)
+							_, err = c.Write([]byte(string(kryptertMelding)))
+						} else {
+							kryptertMelding := mycrypt.Krypter([]rune(dekryptertMelding), mycrypt.ALF_SEM03, 4)
+							log.Println("Kryptert melding: ", string(kryptertMelding))
+							_, err = c.Write([]byte(string(kryptertMelding)))
+						}
 					}
 					if err != nil {
 						if err != io.EOF {

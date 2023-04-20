@@ -1,2 +1,6 @@
+github.com/jonaslefdal/funtemps v0.0.0-20230219205501-a4ed996c9f91 h1:j7QsB3KiLq8BrwnSEEGlU20sCS9pvtDN6iKlu1IdAeM=
+github.com/jonaslefdal/funtemps v0.0.0-20230219205501-a4ed996c9f91/go.mod h1:bTxP6ACa3+2sOX1hjjp3qX1SsA0A9k5/R8W0OHpM8qs=
 github.com/jonaslefdal/is105sem03 v0.0.0-20230419235126-6735232c8a4e h1:oBLh2FVZ00OOrf0tqMTLpfljZ9cetY/lSDoo7Ompq9s=
 github.com/jonaslefdal/is105sem03 v0.0.0-20230419235126-6735232c8a4e/go.mod h1:XfMvtAN93RWOZARdxP9gsn/rVS8HjHxLty2axmJcyHE=
+github.com/jonaslefdal/minyr v0.0.0-20230420142106-9ed664836d41 h1:rQK06W6FR+1wpRH+qUUw7OUC5ym6Bm06N7HnyjHagDY=
+github.com/jonaslefdal/minyr v0.0.0-20230420142106-9ed664836d41/go.mod h1:Yqu18ZeAC2LUvafQtfMpKboL5kSeCeDqm2SVCwKZPdo=
